@@ -13,6 +13,13 @@ window.iconbitmap('coins.ico')
 combo=ttk.Combobox(window,value=sp_cript)
 combo.pack()
 
+targ_btn=Button(window, text='Получить курс')
+targ_btn.pack()
+
+rez_label=Label(text='')
+rez_label.pack()
+
+
 
 
 window.mainloop()
