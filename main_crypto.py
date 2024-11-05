@@ -5,7 +5,12 @@ import requests
 import datetime
 
 
+def update_result_label(event):
+    result_label.config(text='')
+
+
 def update_cur_label(event):
+    result_label.config(text='')
     code=combobox_cur.get()
     name=cur[code]
     cur_label.config(text=name)
@@ -51,6 +56,7 @@ window.iconbitmap('coins.ico')
 Label(text='Выберите криптовалюту: ', font='Arial,10').grid(row=0,column=0,padx=5, pady=10)
 combobox_cript=ttk.Combobox(window,value=sp_cript, font='Arial,10')
 combobox_cript.grid(row=0,column=1,padx=5, pady=2)
+combobox_cript.bind('<<ComboboxSelected>>',update_result_label)
 
 # выпадающий список валют
 Label(text='Выберите валюту: ', font='Arial,10').grid(row=1,column=0,padx=5, pady=2)
