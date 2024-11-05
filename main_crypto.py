@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox as mb
 import requests
+import datetime
 
 
 def update_cur_label(event):
@@ -13,6 +14,7 @@ def update_cur_label(event):
 def exchange():
     crypt_code=combobox_cript.get()
     cur_code=combobox_cur.get()
+    now_dt = datetime.datetime.now().strftime('%d.%m.%Y %X')
 
     if crypt_code and cur_code:
         try:
@@ -22,7 +24,7 @@ def exchange():
 
             if json_resp:
                 result=json_resp[crypt_code.lower()]
-                result_label.config(text=f'Курс:\n за 1 {crypt_code} - {result[cur_code.lower()]} {cur_code}', fg='#00782D')
+                result_label.config(text=f'Курс на {now_dt}:\n за 1 {crypt_code} - {result[cur_code.lower()]} {cur_code}', fg='#00782D')
             else:
                 result_label.config(text='Такого кода валюты не существует')
         except Exception as e:
