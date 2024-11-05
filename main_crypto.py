@@ -29,7 +29,7 @@ def exchange():
 
             if json_resp:
                 result=json_resp[crypt_code.lower()]
-                result_label.config(text=f'Курс на {now_dt}:\n за 1 {crypt_code} - {result[cur_code.lower()]} {cur_code}', fg='#00782D')
+                result_label.config(text=f'Курс на {now_dt} \nза 1 {crypt_code} - {result[cur_code.lower()]} {cur_code}', fg='#00782D')
             else:
                 result_label.config(text='Такого кода валюты не существует')
         except Exception as e:
@@ -59,7 +59,7 @@ combobox_cript.grid(row=0,column=1,padx=5, pady=2)
 combobox_cript.bind('<<ComboboxSelected>>',update_result_label)
 
 # выпадающий список валют
-Label(text='Выберите валюту: ', font='Arial,10').grid(row=1,column=0,padx=5, pady=2)
+Label(text='Конвертировать в: ', font='Arial,10').grid(row=1,column=0,padx=5, pady=2)
 combobox_cur=ttk.Combobox(value=list(cur.keys()), font='Arial,10')
 combobox_cur.grid(row=1,column=1,padx=5, pady=2)
 combobox_cur.bind('<<ComboboxSelected>>',update_cur_label)
