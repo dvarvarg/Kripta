@@ -63,7 +63,7 @@ cur= {
 
 # Создание графического интерфейса
 window=Tk()
-window.title('Криптовалюта')
+window.title('Транскрипт')
 window.geometry(f'420x200+{window.winfo_screenwidth()//2-210}+{window.winfo_screenheight()//2-100}')
 window.iconbitmap('coins.ico')
 
